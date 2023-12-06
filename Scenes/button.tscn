@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq4dcxyrpb03x"]
+
+[ext_resource type="Script" path="res://Scenes/button.gd" id="1_xfhc3"]
+[ext_resource type="Texture2D" uid="uid://bc82bl5ct7xkc" path="res://Assets/Ui/ButtonPressed.png" id="2_qlljf"]
+
+[node name="Button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfhc3")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 45.0
+texture_normal = ExtResource("2_qlljf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 170.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 25
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1
