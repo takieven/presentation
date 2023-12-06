@@ -16,12 +16,12 @@ var is_in_range = false
 var initial_position := Vector3.ZERO
 
 @onready var player := get_tree().get_first_node_in_group("Player")
+@onready var label = get_node("Label3D")
 
 # ---------- FUNCTIONS ---------- #
 
 func _ready():
 	initial_position = position
-	var label = get_node("Label3D")
 	label.text = shit
 
 func _process(delta):
@@ -48,6 +48,7 @@ func _on_body_entered(body):
 	# Delete The Coin and Add Score
 	if body.is_in_group("Player"):
 		GameManager.add_score()
+		GameManager.set_topic(label.text)
 		AudioManager.coin_sfx.play()
 		queue_free()
 

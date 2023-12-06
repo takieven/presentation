@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://po63m4srixl4"]
+[gd_scene load_steps=22 format=3 uid="uid://po63m4srixl4"]
 
 [ext_resource type="PackedScene" uid="uid://0t0qb3qjq6my" path="res://Scenes/PlatformRed.tscn" id="2_4lh3q"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
 [ext_resource type="PackedScene" uid="uid://bk5n0tn4k1l0c" path="res://Scenes/Coin.tscn" id="5_4fiv6"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
-[ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
 [ext_resource type="Script" path="res://Scripts/GameUI.gd" id="7_x8whp"]
 [ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
 [ext_resource type="Texture2D" uid="uid://bc82bl5ct7xkc" path="res://Assets/Ui/ButtonPressed.png" id="10_54g5c"]
 [ext_resource type="Texture2D" uid="uid://cfmslu2ysvonx" path="res://Assets/Ui/Panel 2Blue.png" id="10_fn6pa"]
+[ext_resource type="Texture2D" uid="uid://ljw3wcjrcf6j" path="res://Assets/Ui/MiniPanel 4Blue.png" id="12_dodeh"]
 
 [sub_resource type="Environment" id="Environment_g4ka7"]
 background_mode = 1
@@ -49,21 +49,9 @@ size = Vector3(128, 17, 112)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03vpg"]
 texture = ExtResource("10_fn6pa")
 expand_margin_left = 80.0
-expand_margin_top = 80.0
+expand_margin_top = 90.0
 expand_margin_right = 80.0
 expand_margin_bottom = 80.0
-
-[sub_resource type="SystemFont" id="SystemFont_1ixsq"]
-font_names = PackedStringArray("Star Choco")
-multichannel_signed_distance_field = true
-
-[sub_resource type="SystemFont" id="SystemFont_656xb"]
-font_names = PackedStringArray("Star Choco")
-
-[sub_resource type="LabelSettings" id="LabelSettings_igq7x"]
-font = SubResource("SystemFont_656xb")
-font_size = 50
-font_color = Color(0.996094, 0.691406, 0.261719, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihkkb"]
 texture = ExtResource("10_54g5c")
@@ -74,10 +62,13 @@ texture = ExtResource("10_54g5c")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qjyce"]
 texture = ExtResource("10_54g5c")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sy7qn"]
+texture = ExtResource("12_dodeh")
+
 [node name="DemoScene" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_21dfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0682774, 3.60331, -1.58581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06828, 4.60331, -0.58581)
 
 [node name="Platforms" type="Node3D" parent="."]
 
@@ -128,7 +119,7 @@ environment = SubResource("Environment_g4ka7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.898603, 0.438763, 2.98254e-08, 0.146657, 0.300359, 0.942484, 0.413527, 0.846919, -0.334251, 9.04457, 6.63937, -28.4749)
-shadow_enabled = true
+light_bake_mode = 1
 
 [node name="Extras" type="Node3D" parent="."]
 
@@ -205,37 +196,16 @@ script = ExtResource("7_x8whp")
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 offset_left = 128.0
-offset_top = 112.0
+offset_top = 152.0
 offset_right = 1040.0
 offset_bottom = 552.0
 theme_override_colors/font_color = Color(0.34902, 0.690196, 0.976471, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_03vpg")
+text = "9128jhiuewieriwueryioweuryiowueryiowueriwueriowueryiowueryiowueyriowueyirouweyioruwyeiurwyieuryiwueriouryiewoueryiowueryiowueryiwu"
+horizontal_alignment = 3
+vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="CoinTexture" type="TextureRect" parent="UserInterface/GameUI"]
-layout_mode = 2
-offset_left = -192.0
-offset_top = 16.0
-offset_right = -123.0
-offset_bottom = 85.0
-texture = ExtResource("7_ow7xm")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="CoinsLabel" type="Label" parent="UserInterface/GameUI"]
-layout_mode = 2
-offset_left = -88.0
-offset_top = 112.0
-offset_right = -15.0
-offset_bottom = 181.0
-theme_override_colors/font_color = Color(0.996094, 0.710938, 0.261719, 1)
-theme_override_colors/font_outline_color = Color(0.644531, 0.410156, 0.1875, 1)
-theme_override_constants/outline_size = 24
-theme_override_fonts/font = SubResource("SystemFont_1ixsq")
-theme_override_font_sizes/font_size = 48
-text = "X 3"
-label_settings = SubResource("LabelSettings_igq7x")
 
 [node name="Button" type="Button" parent="UserInterface/GameUI"]
 layout_mode = 2
@@ -260,6 +230,19 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ihkkb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4ha08")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qjyce")
 text = "Close"
+
+[node name="Topic" type="Label" parent="UserInterface/GameUI"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 16.0
+offset_right = 1024.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_sy7qn")
+text = "dsdssd"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
 [connection signal="pressed" from="UserInterface/GameUI/Button" to="UserInterface/GameUI" method="_on_button_pressed"]

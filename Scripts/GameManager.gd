@@ -3,6 +3,7 @@ extends Node3D
 # ---------- VARIABLES ---------- #
 
 var score = 0
+var topic = ""
 
 # ---------- FUNCTIONS ---------- #
 
@@ -16,3 +17,6 @@ func show_mouse_cursor():
 
 func add_score():
 	score += 1
+
+func set_topic(value: String):
+	topic = value
